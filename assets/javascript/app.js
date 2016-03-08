@@ -26,12 +26,23 @@ function displayGif(){
 	$.ajax({url: queryUrl, method : 'GET'})
 		.done(function(response){
 			var result = response.data;
+			
+                    
+
+
 			for (var i = 0; i < result.length; i++) {
+			var fixHgtURL = result[i].images.fixed_height.url;
+            var stillURL = result[i].images.fixed_height_still.url;	
+
 			var gifBox = $('<div>').text("rating:" + result[i].rating).attr('class','col-sm-3')
 			var image = result[i].images.fixed_height.url;
 			var tvShowimage = $("<img>");
-			tvShowimage.attr('src', image);
+			tvShowimage.attr('src', stillURL);
 			tvShowimage.attr('alt', 'tv show');
+			tvShowimage.attr('data-state','still');
+			tvShowimage.attr('data-still',stillURL);
+			tvShowimage.attr('data-animate', fixHgtURL);
+			tvShowimage.attr('class','image')
 			gifBox.append(tvShowimage);
 
 			$('#mainDisplay').prepend(gifBox);
@@ -47,6 +58,18 @@ function displayGif(){
 renderButtons();
 
 
+function state(){
+	var state = $(this).attr('data-state');
+	if(state == 'still'){
+		$(this).attr('src', $(this).data('animate'));
+		$(this).attr('data-state', 'animate');
+	}else{
+		$(this).attr('src', $(this).data('still'));
+		$(this).attr('data-state','still')
+	}
+}
+
+
 $('#addButton').on('click',function(){
 
 	var tvshow = $('#input').val().trim();
@@ -58,7 +81,7 @@ $('#addButton').on('click',function(){
 });
 
 $(document).on('click','.tvshow', displayGif );
-
+$(document).on('click','.image', state);
 
 
 
