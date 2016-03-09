@@ -34,7 +34,8 @@ function displayGif(){
 			var fixHgtURL = result[i].images.fixed_height.url;
             var stillURL = result[i].images.fixed_height_still.url;	
 
-			var gifBox = $('<div>').text("rating:" + result[i].rating).attr('class','col-sm-3')
+			var gifBox = $('<div>').text("rating:" + result[i].rating).attr('class','col-sm-3 gifbox')
+
 			var image = result[i].images.fixed_height.url;
 			var tvShowimage = $("<img>");
 			tvShowimage.attr('src', stillURL);

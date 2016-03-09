@@ -1,0 +1,18 @@
+body {
+
+	background-image: url(../images/background.jpg);
+}
+
+.gifbox {
+
+	color:red;
+	overflow: auto;
+	font-family: Troika;
+}
+
+button {
+
+	border-style: solid;
+	border-color:red;
+	border-radius: 25px;
+}
