@@ -22,7 +22,7 @@ function renderButtons(){
 
 function displayGif(){
 	var tvShow = $(this).attr('data-name');
-	var queryUrl = "http://api.giphy.com/v1/gifs/search?q="+ tvShow +"&api_key=dc6zaTOxFJmzC&limit="+5;
+	var queryUrl = "https://api.giphy.com/v1/gifs/search?q="+ tvShow +"&api_key=dc6zaTOxFJmzC&limit="+5;
 	$.ajax({url: queryUrl, method : 'GET'})
 		.done(function(response){
 			var result = response.data;
