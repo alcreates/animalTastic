@@ -4,7 +4,7 @@ body {
 }
 
 .gifbox {
-
+	display:block;
 	color:red;
 	overflow: auto;
 	font-family: Troika;
@@ -15,4 +15,8 @@ button {
 	border-style: solid;
 	border-color:red;
 	border-radius: 25px;
+}
+img {
+
+	display:block;
 }
